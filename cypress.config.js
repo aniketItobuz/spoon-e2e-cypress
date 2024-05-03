@@ -3,9 +3,11 @@ const { defineConfig } = require("cypress");
 module.exports = defineConfig({
   e2e: {
     setupNodeEvents(on, config) {
-      // implement node event listeners here
+      require('cypress-mochawesome-reporter/plugin')(on);
     },
   },
+  reporter: 'mochawesome',
   viewportWidth: 1280,
-  viewportHeight: 720
+  viewportHeight: 720,
+  
 });
