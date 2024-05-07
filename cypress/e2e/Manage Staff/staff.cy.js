@@ -10,6 +10,8 @@ describe('Manage Staff', () => {
 
   const name = faker.person.fullName()
 
+  const s = new staffD()
+
   beforeEach(() => {
     const { Base_URL, ADMIN_Email, ADMIN_Password } = Cypress.env();
     cy.visit(Base_URL);
@@ -18,13 +20,9 @@ describe('Manage Staff', () => {
   });
 
   it('Add a Staff', () => {
-    const s = new staffD()
     s.addStaff()
   })
-  it('Add a Staff', () => {
-    const s = new staffD()
+  it('Edit Staff', () => {
     s.deleteStaff()
   })
-
-  
 })
