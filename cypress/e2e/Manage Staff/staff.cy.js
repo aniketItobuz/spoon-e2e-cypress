@@ -2,6 +2,7 @@
 
 import { login } from "../../support/utils";
 import { faker } from '@faker-js/faker';
+import { staffD } from '../Pages/staff.js';
 import 'cypress-xpath'
 import "cypress-localstorage-commands";
 
@@ -14,32 +15,16 @@ describe('Manage Staff', () => {
     cy.visit(Base_URL);
     login(ADMIN_Email, ADMIN_Password);
     cy.wait(2000);
-    // cy.saveLocalStorage()
-    // cy.getAllLocalStorage()
   });
 
-  it('Add a staff', () => {
-    cy.xpath('//span[normalize-space()="Manage Staff"]').click()
-    cy.xpath('//div[contains(@title,"staff/delivery partner")]').click()
-    cy.xpath('//input[@name="name"]').type(name)
-    cy.xpath('//input[@name="phoneNumber"]').type(faker.phone.number())
-    cy.xpath('//div[@class="multi-select__input-container css-19bb58m"]').click()
-    cy.get('#react-select-3-option-1').type("{enter}")
-    cy.xpath('//input[@name="email"]').type(faker.internet.email())
-    cy.xpath('//button[@type="submit"]').click()
-    cy.contains("Staff added successfully.")
+  it('Add a Staff', () => {
+    const s = new staffD()
+    s.addStaff()
+  })
+  it('Add a Staff', () => {
+    const s = new staffD()
+    s.deleteStaff()
   })
 
-  it('Add a staff', () => {
-    cy.xpath('//span[normalize-space()="Manage Staff"]').click()
-    cy.reload()
-    cy.xpath('//input[@placeholder="Search Staff"]').type(name)
-    cy.wait(2000)
-    cy.xpath('//div[@class="relative flex justify-end w-full cursor-pointer"]//*[name()="svg"]').click()
-    cy.xpath('//button[normalize-space()="Delete"]').click()
-    cy.xpath('//button[normalize-space()="Delete"]').click()
-    //tbody/tr[3]/td[6]/div[1]/div[1]//*[name()='svg']
-    
-    
-  })
+  
 })
