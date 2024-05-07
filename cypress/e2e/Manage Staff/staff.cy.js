@@ -33,8 +33,13 @@ describe('Manage Staff', () => {
   it('Add a staff', () => {
     cy.xpath('//span[normalize-space()="Manage Staff"]').click()
     cy.reload()
-    cy.xpath('//input[@placeholder="Search Items"]').type(name)
+    cy.xpath('//input[@placeholder="Search Staff"]').type(name)
     cy.wait(2000)
-    cy.contains(name)
+    cy.xpath('//div[@class="relative flex justify-end w-full cursor-pointer"]//*[name()="svg"]').click()
+    cy.xpath('//button[normalize-space()="Delete"]').click()
+    cy.xpath('//button[normalize-space()="Delete"]').click()
+    //tbody/tr[3]/td[6]/div[1]/div[1]//*[name()='svg']
+    
+    
   })
 })
