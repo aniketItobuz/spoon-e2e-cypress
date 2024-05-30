@@ -13,7 +13,7 @@ describe('All Item', () => {
   });
 
   it('Add Item', () => {
-    cy.get(':nth-child(3) > .text-white > .w-full').click()
+    cy.xpath(':nth-child(3) > .text-white > .w-full').click()
     cy.get('.bg-deep-green').click()
     //span[@class='background-gradient text-active rounded-lg p-2 h-full w-full block']
     cy.xpath('//label[@for="files"]').selectFile('cypress/fixtures/user.png')
